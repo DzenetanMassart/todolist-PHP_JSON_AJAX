@@ -1,0 +1,141 @@
+        $C1:white;
+        $C2:#00a6d8;
+        $C3:black;
+        body {
+            background-color: $C2;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        header {
+            h1 {
+                font-family: 'FontAwesome';
+                text-align: center;
+                font-size: 6.2vw;
+                color: $C1;
+                display: inline-block;
+            }
+        }
+        
+        section {
+            .separe {
+                width: 100%;
+                display: inline-block;
+                input[type='submit']:nth-child(1) {
+                    float: left;
+                    margin: 5px;
+                    font-family: 'FontAwesome';
+                }
+                input[type='submit']:nth-child(2) {
+                    float: right;
+                    margin: 5px;
+                    font-family: 'FontAwesome';
+                }
+            }
+            h2 {
+                font-family: 'FontAwesome';
+                text-align: center;
+                color: $C1;
+                display: inline-block;
+            }
+            form {
+                font-family: 'FontAwesome';
+                margin-top: 1vw;
+                margin-bottom: 1vw;
+            }
+            input[type='submit'] {
+                font-family: 'FontAwesome';
+                display: inline-block;
+                position: relative;
+                margin-bottom: 0.1vw;
+                margin-top: 0.1vw;
+                padding-right: 0.5vw;
+                border: 3px solid $C1;
+                border-radius: 10vw;
+                color: $C1;
+                background-color: $C2;
+                white-space: nowrap;
+                cursor: pointer;
+                user-select: none;
+                transition: background-color .2s, padding-right .5s;
+            }
+            input[type='text'] {
+                font-family: 'FontAwesome';
+                border: none;
+                padding: 1px;
+                margin: 0;
+                outline: none;
+                color: $C2;
+                font-weight: bold;
+                box-shadow: none;
+                &:focus {
+                    border: none;
+                    padding: 1px;
+                    margin: 0;
+                    outline: none;
+                    color: $C2;
+                    font-weight: bold;
+                    box-shadow: none;
+                }
+            }
+            input[type='text']::placeholder {
+                outline: none;
+                color: $C2;
+                font-weight: bold;
+            }
+        }
+        
+        label {
+            display: block;
+            position: relative;
+            text-align: right;
+            padding-right: 0.5vw;
+            border: 3px solid $C1;
+            color: $C1;
+            background-color: $C2;
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none;
+            margin-bottom: 0.1vw;
+            transition: background-color .2s, padding-right .5s;
+        }
+        
+        label::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 1vw;
+            bottom: 1vw;
+            left: 1vw;
+            border: 3px solid $C1;
+            border-radius: 100px;
+            transition: background-color .2s, border-radius .2s;
+            padding-right: 1.9vw;
+        }
+        
+        input:checked+label {
+            display: block;
+            background-color: $C1;
+            border: 3px solid $C2;
+            color: $C2;
+            text-align: right;
+            padding-right: 1.9vw;
+            border-radius: 120px;
+        }
+        
+        input:checked+label::before {
+            display: inline-block;
+            background-color: $C3;
+            border: 3px solid $C2;
+            color: $C2;
+            top: 1.1vw;
+            left: 1.1vw;
+            text-align: right;
+        }
+        
+        input[type='checkbox'] {
+            opacity: 0.00;
+        }
