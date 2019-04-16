@@ -8,7 +8,7 @@ require 'assets/php/connect.php';
 
 <!Doctype html>
 <head>
-<title>ToDoList SQL</title>
+<title>ToDoList PHP JSON et AJAX</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -19,7 +19,7 @@ require 'assets/php/connect.php';
 <body>
 
 <header>
-		<h1><i class="fas fa-clipboard-list"></i>ToDoList SQL</h1>
+		<h1><i class="fas fa-clipboard-list"></i>ToDoList PHP,JSON & AJAX</h1>
 	</header>
 
 	<section>
@@ -30,14 +30,13 @@ require 'assets/php/connect.php';
 				
 				<?php 
 				
-				$resultat = $bdd->query('SELECT * FROM taches WHERE statut=0');
-				while ($donnees = $resultat->fetch()){
-
+				$donnees = $bdd->statut="0";
+foreach($donnees as $data){
 					echo 
 					         '<div class="nodone">
-					         <input type="checkbox" id="checkbox'.$donnees['id'].'" name="UNDONE" value="'.$donnees['id'].'">
-					         <label for="checkbox'.$donnees['id'].'" >
-					         '.$donnees['id'].' <i class="fas fa-arrow-circle-right"></i> '.$donnees['texte'].'
+					         <input type="checkbox" id="checkbox'.$data['id'].'" name="UNDONE" value="'.$data['id'].'">
+					         <label for="checkbox'.$data['id'].'" >
+					         '.$data['id'].' <i class="fas fa-arrow-circle-right"></i> '.$data['texte'].'
 					         </label>
 					         </div>';
 				}
@@ -58,8 +57,8 @@ require 'assets/php/connect.php';
 				
 			<?php 
 				
-				$conserver = $bdd->query('SELECT * FROM taches WHERE statut=1');
-				while ($termined = $conserver->fetch()){
+				$conserver = $bdd->statut="1";
+				foreach($conserver as $termined){
 
 					echo 
 					         '<div class="done">

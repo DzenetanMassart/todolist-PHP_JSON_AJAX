@@ -1,9 +1,10 @@
 <?php
-/* cette page sert à se connecter au localhost */
-
+//Ici, on initialise le JSON !
 try
 {
-	$bdd = new PDO('mysql:host=localhost;dbname=todolist;charset=utf8', 'massart', 'user');
+$data = file_get_contents( __DIR__."/taches.json"); 
+$bdd = json_decode($data); 
+
 }
 catch(Exception $e)
 {
