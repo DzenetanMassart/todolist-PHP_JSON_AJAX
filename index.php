@@ -5,6 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 /* On connecte l'index avec les variables externes !*/
 require 'assets/php/connect.php';
+$inc=0;
 ?>
 
 <!Doctype html>
@@ -31,13 +32,14 @@ require 'assets/php/connect.php';
 				
 				<?php 
 				
-				$donnees = $datas->statut="0";
-foreach($datas as $data){
+				$donnee = $datas->statut="0";
+foreach($donnee as $data){
+$inc++;
 					echo 
 					         '<div class="nodone">
-					         <input type="checkbox" id="checkbox'.$data['id'].'" name="UNDONE" value="'.$data['id'].'">
-					         <label for="checkbox'.$data['id'].'" >
-					         '.$data['id'].' <i class="fas fa-arrow-circle-right"></i> '.$data['texte'].'
+					         <input type="checkbox" id="checkbox'.$data[$inc]->id.'" name="UNDONE" value="'.$data[$inc]->id.'">
+					         <label for="checkbox'.$data[$inc]->id.'" >
+					         '.$data[$inc]->id.' <i class="fas fa-arrow-circle-right"></i> '.$data[$inc]->texte.'
 					         </label>
 					         </div>';
 				}

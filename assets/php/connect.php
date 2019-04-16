@@ -4,7 +4,8 @@ try
 {
 $datas = file_get_contents( __DIR__."/taches.json"); 
 $bdd = json_decode($datas); 
-echo json_encode($bdd);
+
+echo "Le tableau corresspond à: ".$datas." et l'id à ".$bdd[0]->id;
 }
 catch(Exception $e)
 {
