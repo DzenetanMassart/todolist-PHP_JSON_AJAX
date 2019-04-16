@@ -1,9 +1,10 @@
 <?php
+//montre les erreurs
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+/* On connecte l'index avec les variables externes !*/
 require 'assets/php/connect.php';
-	// require 'assets/php/affichage.php';
 ?>
 
 <!Doctype html>
@@ -30,8 +31,8 @@ require 'assets/php/connect.php';
 				
 				<?php 
 				
-				$donnees = $bdd->statut="0";
-foreach($donnees as $data){
+				$donnees = $datas->statut="0";
+foreach($datas as $data){
 					echo 
 					         '<div class="nodone">
 					         <input type="checkbox" id="checkbox'.$data['id'].'" name="UNDONE" value="'.$data['id'].'">
