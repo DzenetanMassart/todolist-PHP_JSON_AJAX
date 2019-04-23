@@ -33,7 +33,7 @@ require 'assets/php/connect.php';
 foreach($donnee as $key=>$data){
 					echo 
 					         '<div class="nodone">
-					         <input type="checkbox" id="checkbox'.$data->id.'" name="UNDONE" value="'.$data->id.'">
+					         <input type="checkbox" id="checkbox'.$data->id.'" name="UNDONE[]" value="'.$data->id.'">
 					         <label for="checkbox'.$data->id.'" >
 					          <i class="fas fa-arrow-circle-right"></i> '.$data->texte.'
 					         </label>
@@ -61,7 +61,7 @@ foreach($donnee as $key=>$data){
 
 					echo 
 					'<div class="done">
-					<input type="checkbox" id="checkbox'.$termined->id.'" name="DONE" value="'.$termined->id.'">
+					<input type="checkbox" id="checkbox'.$termined->id.'" name="DONE[]" value="'.$termined->id.'">
 					<label for="checkbox'.$termined->id.'" >
 					 <i class="fas fa-arrow-circle-right"></i> '.$termined->texte.'
 					</label>
@@ -87,6 +87,15 @@ foreach($donnee as $key=>$data){
 		</form>
 
 	</section>
-    
+<script>
+let datas= 'assets/php/taches.json';
+let bdd = new XMLHttpRequest();
+bdd.open('GET', datas);
+
+
+
+
+
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 </body>
