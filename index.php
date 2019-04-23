@@ -5,7 +5,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 /* On connecte l'index avec les variables externes !*/
 require 'assets/php/connect.php';
-$inc=0;
 ?>
 
 <!Doctype html>
@@ -25,26 +24,24 @@ $inc=0;
 	</header>
 
 	<section>
-
 		<div class="liste">
 			<h2>Tâches à réaliser</h2>
 			<form action="assets/php/list.php" method="POST">
 				
 				<?php 
-				
-				$donnee = $datas->statut="0";
-foreach($donnee as $data){
-$inc++;
+				$donnee = $bdd["taches"]->pasfaits;
+foreach($donnee as $key=>$data){
 					echo 
 					         '<div class="nodone">
-					         <input type="checkbox" id="checkbox'.$data[$inc]->id.'" name="UNDONE" value="'.$data[$inc]->id.'">
-					         <label for="checkbox'.$data[$inc]->id.'" >
-					         '.$data[$inc]->id.' <i class="fas fa-arrow-circle-right"></i> '.$data[$inc]->texte.'
+					         <input type="checkbox" id="checkbox'.$data->id.'" name="UNDONE" value="'.$data->id.'">
+					         <label for="checkbox'.$data->id.'" >
+					          <i class="fas fa-arrow-circle-right"></i> '.$data->texte.'
 					         </label>
 					         </div>';
 				}
 				
 				?>
+
 <div class="separe">
 				<input type="submit" value="Archiver" name="conserve">
 				<input type="submit" value="Archiver TOUT" name="conserve_tout">
@@ -57,22 +54,22 @@ $inc++;
 			<h2>Tâches réalisées</h2>
 
 			<form action="assets/php/update.php" method="POST">
-				
+
 			<?php 
-				
-				$conserver = $bdd->statut="1";
-				foreach($conserver as $termined){
+				$conserver = $bdd["taches"]->faits;
+				foreach($conserver as $key=>$termined){
 
 					echo 
-					         '<div class="done">
-					         <input type="checkbox" id="checkbox'.$termined['id'].'" name="DONE" value="'.$termined['texte'].'">
-					         <label for="checkbox'.$termined['id'].'" >
-					         '.$termined['id'].' <i class="fas fa-arrow-circle-right"></i> '.$termined['texte'].'
-					         </label>
-					         </div>';
+					'<div class="done">
+					<input type="checkbox" id="checkbox'.$termined->id.'" name="DONE" value="'.$termined->id.'">
+					<label for="checkbox'.$termined->id.'" >
+					 <i class="fas fa-arrow-circle-right"></i> '.$termined->texte.'
+					</label>
+					</div>';
 				}
 				
 				?>
+
 <div class="separe">
 
 				<input type="submit" value="Supprimer" name="retire">

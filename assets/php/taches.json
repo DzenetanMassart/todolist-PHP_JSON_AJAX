@@ -1,1 +1,14 @@
-[{ "id": "30", "texte": "Test !", "statut": "0" }]
+{
+    "taches": {
+        "pasfaits": [
+            { "id": "1", "texte": "Test !" },
+            { "id": "2", "texte": "Saucisse !" }
+        ],
+
+
+        "faits": [
+            { "id": "3", "texte": "Popo !" },
+            { "id": "4", "texte": "Grand test !" }
+        ]
+    }
+}
