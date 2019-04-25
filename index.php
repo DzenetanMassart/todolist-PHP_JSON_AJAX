@@ -14,7 +14,7 @@ require 'assets/php/connect.php';
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-<link rel="stylesheet" href="assets/css/todolist.min.css">
+<link rel="stylesheet" href="assets/css/todolist.css">
 
 </head>
 <body>
@@ -26,8 +26,8 @@ require 'assets/php/connect.php';
 	<section>
 		<div class="liste">
 			<h2>Tâches à réaliser</h2>
-			<form action="assets/php/list.php" method="POST">
-				
+			<form>
+				<div class="scroller">
 				<?php 
 				$donnee = $bdd["taches"]->pasfaits;
 foreach($donnee as $key=>$data){
@@ -41,7 +41,7 @@ foreach($donnee as $key=>$data){
 				}
 				
 				?>
-
+</div>
 <div class="separe">
 				<input type="submit" value="Archiver" name="conserve">
 				<input type="submit" value="Archiver TOUT" name="conserve_tout">
@@ -53,7 +53,8 @@ foreach($donnee as $key=>$data){
 		<div class="termined">
 			<h2>Tâches réalisées</h2>
 
-			<form action="assets/php/update.php" method="POST">
+			<form>
+			<div class="scroller">
 
 			<?php 
 				$conserver = $bdd["taches"]->faits;
@@ -69,7 +70,7 @@ foreach($donnee as $key=>$data){
 				}
 				
 				?>
-
+</div>
 <div class="separe">
 
 				<input type="submit" value="Supprimer" name="retire">
@@ -78,7 +79,7 @@ foreach($donnee as $key=>$data){
 			</form>
 		</div>
 
-		<form action="assets/php/update.php" method="POST">	
+		<form>	
 		<div class="separe">
 		
             <input type="text" placeholder="Ajouter une tache" name="plusTache" class="tache" rows="1" cols="33">
@@ -88,10 +89,16 @@ foreach($donnee as $key=>$data){
 
 	</section>
 <script>
+
+
+
 let datas= 'assets/php/taches.json';
 let bdd = new XMLHttpRequest();
 bdd.open('GET', datas);
-
+bdd.onload=function(){
+alert("L'AJAX est disponible !");
+};
+bdd.send();
 
 
 
