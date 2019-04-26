@@ -26,7 +26,7 @@ require 'assets/php/connect.php';
 	<section>
 		<div class="liste">
 			<h2>Tâches à réaliser</h2>
-			<form>
+			<form action="assets/php/taches.php" method="POST">
 				<div class="scroller">
 				<?php 
 				$donnee = $bdd["taches"]->pasfaits;
@@ -44,7 +44,6 @@ foreach($donnee as $key=>$data){
 </div>
 <div class="separe">
 				<input type="submit" value="Archiver" name="conserve">
-				<input type="submit" value="Archiver TOUT" name="conserve_tout">
 			</div>
 			</form>
 		</div>
@@ -53,7 +52,7 @@ foreach($donnee as $key=>$data){
 		<div class="termined">
 			<h2>Tâches réalisées</h2>
 
-			<form>
+			<form action="assets/php/archives.php" method="POST" >
 			<div class="scroller">
 
 			<?php 
@@ -74,12 +73,11 @@ foreach($donnee as $key=>$data){
 <div class="separe">
 
 				<input type="submit" value="Supprimer" name="retire">
-				<input type="submit" value="Supprimer TOUT" name="retire_tout">
 			</div>
 			</form>
 		</div>
 
-		<form>	
+		<form action="assets/php/enregistrer.php" method="POST">	
 		<div class="separe">
 		
             <input type="text" placeholder="Ajouter une tache" name="plusTache" class="tache" rows="1" cols="33">
