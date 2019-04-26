@@ -12,17 +12,15 @@ section .scroller::-webkit-scrollbar-thumb { background-color: #0ae; background-
 
 section .separe { width: 100%; display: inline-block; }
 
-section .separe input[type='submit']:nth-child(1) { float: left; margin: 5px; font-family: 'FontAwesome'; }
-
-section .separe input[type='submit']:nth-child(2) { float: right; margin: 5px; font-family: 'FontAwesome'; }
+section .separe input[type='submit'] { margin: 5px; font-family: 'FontAwesome'; }
 
 section h2 { font-family: 'FontAwesome'; text-align: center; color: white; display: inline-block; }
 
 section form { font-family: 'FontAwesome'; }
 
-section input[type='submit'] { font-family: 'FontAwesome'; display: inline-block; position: relative; margin-bottom: 0.1vw; margin-top: 0.1vw; padding-right: 0.5vw; border: 3px solid white; border-radius: 10vw; color: white; background-color: #00a6d8; white-space: nowrap; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-transition: background-color .2s, padding-right .5s; transition: background-color .2s, padding-right .5s; }
+section input[type='submit'] { font-family: 'FontAwesome'; display: inline-block; position: relative; margin-bottom: 0.1vw; margin-top: 0.1vw; padding-right: 0.5vw; border: 3px solid white; border-radius: 10vw; color: white; background-color: #00a6d8; white-space: nowrap; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-transition: background-color .2s, padding-right .5s; transition: background-color .2s, padding-right .5s; width: 100%; }
 
-section input[type='text'] { font-family: 'FontAwesome'; border: none; padding: 1px; margin: 0; outline: none; color: #00a6d8; font-weight: bold; -webkit-box-shadow: none; box-shadow: none; }
+section input[type='text'] { width: 100%; font-family: 'FontAwesome'; border: none; padding: 1px; margin: 0; outline: none; color: #00a6d8; font-weight: bold; -webkit-box-shadow: none; box-shadow: none; }
 
 section input[type='text']:focus { border: none; padding: 1px; margin: 0; outline: none; color: #00a6d8; font-weight: bold; -webkit-box-shadow: none; box-shadow: none; }
 

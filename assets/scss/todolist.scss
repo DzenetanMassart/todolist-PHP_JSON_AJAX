@@ -41,13 +41,7 @@ section {
     .separe {
         width: 100%;
         display: inline-block;
-        input[type='submit']:nth-child(1) {
-            float: left;
-            margin: 5px;
-            font-family: 'FontAwesome';
-        }
-        input[type='submit']:nth-child(2) {
-            float: right;
+        input[type='submit'] {
             margin: 5px;
             font-family: 'FontAwesome';
         }
@@ -76,8 +70,10 @@ section {
         cursor: pointer;
         user-select: none;
         transition: background-color .2s, padding-right .5s;
+        width: 100%;
     }
     input[type='text'] {
+        width: 100%;
         font-family: 'FontAwesome';
         border: none;
         padding: 1px;
