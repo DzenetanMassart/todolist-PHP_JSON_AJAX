@@ -20,73 +20,51 @@ require 'assets/php/connect.php';
 <body>
 
 <header>
+		
 		<h1><i class="fas fa-clipboard-list"></i>ToDoList PHP,JSON & AJAX</h1>
-	</header>
-
+	
+</header>
 	<section>
-		<div class="liste">
+<div class="liste">
 			<h2>Tâches à réaliser</h2>
-			<form action="assets/php/taches.php" method="POST">
-				<div class="scroller">
-				<?php 
-				$donnee = $bdd["taches"]->pasfaits;
-foreach($donnee as $key=>$data){
-					echo 
-					         '<div class="nodone">
-					         <input type="checkbox" id="checkbox'.$data->id.'" name="UNDONE[]" value="'.$data->id.'">
-					         <label for="checkbox'.$data->id.'" >
-					          <i class="fas fa-arrow-circle-right"></i> '.$data->texte.'
-					         </label>
-					         </div>';
-				}
-				
-				?>
-</div>
+
+		<form action="assets/php/taches.php" method="POST">
+
+<div class="scroller" id="taches"></div>
 <div class="separe">
-				<input type="submit" value="Archiver" name="conserve">
-			</div>
-			</form>
-		</div>
+<input type="submit" value="Archiver" name="conserve">
+</div>
+
+		</form>
+</div>
 
 
-		<div class="termined">
+<div class="termined">
 			<h2>Tâches réalisées</h2>
 
-			<form action="assets/php/archives.php" method="POST" >
-			<div class="scroller">
+		<form action="assets/php/archives.php" method="POST" >
 
-			<?php 
-				$conserver = $bdd["taches"]->faits;
-				foreach($conserver as $key=>$termined){
-
-					echo 
-					'<div class="done">
-					<input type="checkbox" id="checkbox'.$termined->id.'" name="DONE[]" value="'.$termined->id.'">
-					<label for="checkbox'.$termined->id.'" >
-					 <i class="fas fa-arrow-circle-right"></i> '.$termined->texte.'
-					</label>
-					</div>';
-				}
-				
-				?>
-</div>
+<div class="scroller" id="archives"></div>
 <div class="separe">
+<input type="submit" value="Supprimer" name="retire">
+</div>
 
-				<input type="submit" value="Supprimer" name="retire">
-			</div>
-			</form>
-		</div>
+		</form>
+</div>
 
-		<form action="assets/php/enregistrer.php" method="POST">	
-		<div class="separe">
-		
-            <input type="text" placeholder="Ajouter une tache" name="plusTache" class="tache" rows="1" cols="33">
-			<input  type="submit" value="Enregistrer" class="submit" name="enregistrer">
-			</div>
+
+
+
+		<form action="assets/php/enregistrer.php" method="POST">
+
+<div class="separe">
+<input type="text" placeholder="Ajouter une tache" name="plusTache" class="tache" rows="1" cols="33">
+<input  type="submit" value="Enregistrer" class="submit" name="enregistrer">
+</div>
+
 		</form>
 
 	</section>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="assets/ajax/ajax.js"></script>
 </body>

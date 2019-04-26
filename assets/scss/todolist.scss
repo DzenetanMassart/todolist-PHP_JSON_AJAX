@@ -21,6 +21,7 @@ header {
 }
 
 section {
+    //Pour personnaliser les scrolls
     .scroller {
         overflow-y: scroll;
         height: 75px;
@@ -147,6 +148,7 @@ input:checked+label::before {
     text-align: right;
 }
 
+//Pour cacher la checkbox qui s'active en cliquant sur le label !
 input[type='checkbox'] {
     opacity: 0.00;
 }
