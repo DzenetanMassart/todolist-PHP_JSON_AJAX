@@ -1,3 +1,12 @@
+<form action="assets/php/enregistrer.php" method="post">
+
+<div class="separe">
+    <input type="text" placeholder="Ajouter une tache" name="plusTache" id="plusTache" class="tache" rows="1" cols="33">
+    <input  type="submit" value="Enregistrer" class="submit" name="enregistrer">
+</div>
+
+</form>
+
 <?php
 
 if(isset($_POST['enregistrer'])){
@@ -5,7 +14,7 @@ $i+=1;
 $taches=array();
 
 $taches['id']= $i;
-$taches['texte']=$_POST['texte'];
+$taches['texte']=$_POST['plusTache'];
 $taches['statut']=true;
 
 $json=file_get_contents('taches.json');
@@ -14,24 +23,6 @@ $json[]=$taches;
 
 $js=json_encode($js);
 file_put_contents('taches.json',$json);
-
-
-// $plusTache=$_POST['plusTache'];
-// echo $plusTache;
-// // read json file
-// $data = file_get_contents('taches.json');
-
-// // decode json
-// $json_arr = json_decode($data, true);
-
-// // add data
-// $json_arr[] = array('id'=>'6', 'texte'=>$plusTache, 'statut'=>true);
-
-// // encode json and save to file
-// file_put_contents('taches.json', json_encode($json_arr));
 header('Location: ../../index.php');
-
-
     }
-
 ?>
