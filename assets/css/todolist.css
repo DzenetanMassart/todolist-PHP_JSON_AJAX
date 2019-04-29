@@ -12,7 +12,7 @@ section .scroller::-webkit-scrollbar-thumb { background-color: #0ae; background-
 
 section .separe { width: 100%; display: inline-block; }
 
-section .separe input[type='submit'] { margin: 5px; font-family: 'FontAwesome'; }
+section .separe input[type='submit'] { margin: 5px; font-family: 'FontAwesome'; width: 45%; }
 
 section h2 { font-family: 'FontAwesome'; text-align: center; color: white; display: inline-block; }
 

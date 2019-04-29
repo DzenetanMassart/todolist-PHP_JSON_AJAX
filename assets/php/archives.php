@@ -1,11 +1,13 @@
 <div class="termined">
 		<h2>Tâches réalisées</h2>
 
-		<form action="assets/php/archives.php" method="post" >
+		<form action="index.php" method="post" >
 
 			<div class="scroller" id="archives"></div>
 			<div class="separe">
 				<input type="submit" value="Supprimer" name="retire">
+                <input type="submit" value="Supprimer TOUT" name="retireTOUT">
+
 			</div>
 
 		</form>
@@ -15,7 +17,7 @@
 <?php
 if(isset($_POST['retire'])AND($_POST['DONE'])){
 // read json file
-$data = file_get_contents('taches.json');
+$data = file_get_contents('assets/php/taches.json');
 
 // decode json to associative array
 $json_arr = json_decode($data, true);
@@ -40,7 +42,7 @@ foreach ($arr_index as $i)
 $json_arr = array_values($json_arr);
 
 // encode array to json and save to file
-file_put_contents('taches.json', json_encode($json_arr));
+file_put_contents('assets/php/taches.json', json_encode($json_arr));
 header('Location: ../../index.php');
     }
 ?>

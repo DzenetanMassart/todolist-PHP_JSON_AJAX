@@ -1,11 +1,13 @@
 <div class="liste">
 		<h2>Tâches à réaliser</h2>
 
-		<form action="assets/php/taches.php" method="post">
+		<form action="index.php" method="post">
 
 			<div class="scroller" id="taches"></div>
 			<div class="separe">
 				<input type="submit" value="Archiver" name="conserve">
+                <input type="submit" value="Archiver TOUT" name="conserveTOUT">
+
 			</div>
 
 		</form>
@@ -14,11 +16,11 @@
 
 <?php
 
-if(isset($_POST['conserve']) AND ($_POST['UNDONE'])){
+if(isset($_POST['conserveTOUT']) AND ($_POST['UNDONE'])){
 
 
 // read file
-$data = file_get_contents('taches.json');
+$data = file_get_contents('assets/php/taches.json');
 
 // decode json to array
 $json_arr = json_decode($data, true);
@@ -30,7 +32,7 @@ foreach ($json_arr as $key => $value) {
 }
 
 // encode array to json and save to file
-file_put_contents('taches.json', json_encode($json_arr));
+file_put_contents('assets/php/taches.json', json_encode($json_arr));
 header('Location: ../../index.php');
     }
 ?>
