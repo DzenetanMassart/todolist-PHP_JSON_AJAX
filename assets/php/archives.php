@@ -5,8 +5,7 @@
 
 			<div class="scroller" id="archives"></div>
 			<div class="separe">
-				<input type="submit" value="Supprimer" name="retire">
-                <input type="submit" value="Supprimer TOUT" name="retireTOUT">
+<input type="submit" value="Supprimer" name="retire">
 
 			</div>
 
@@ -26,16 +25,16 @@ $json_arr = json_decode($data, true);
 $arr_index = array();
 foreach ($json_arr as $key => $value)
 {
-    if ($value['statut'] == true)
-    {
-        $arr_index[] = $key;
-    }
+if ($value['statut'] == false)
+{
+$arr_index[] = $key;
+}
 }
 
 // delete data
 foreach ($arr_index as $i)
 {
-    unset($json_arr[$i]);
+unset($json_arr[$i]);
 }
 
 // rebase array
@@ -43,6 +42,10 @@ $json_arr = array_values($json_arr);
 
 // encode array to json and save to file
 file_put_contents('assets/php/taches.json', json_encode($json_arr));
-header('Location: ../../index.php');
-    }
+}
+
+if(isset($_POST['retire'])AND empty($_POST['DONE'])){
+    echo 'Clique sur une tâche avant de cliquer sur le bouton "Supprimer"';
+}
+
 ?>

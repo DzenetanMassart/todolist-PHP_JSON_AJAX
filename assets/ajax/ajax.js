@@ -19,30 +19,31 @@ let ajax_get = (url, callback) => {
 
 let undone;
 let done;
+let id = 0;
 
 ajax_get('assets/php/taches.json', (bdd) => {
     for (let ii = 0; ii < bdd.length; ii++) {
+        id++;
+
         console.log(bdd[ii]['statut']);
         if (bdd[ii]["statut"] == true) {
-
             undone += '<div class="nodone"><input type="checkbox" id="checkbox' +
-                bdd[ii]["id"] +
+                id +
                 '"name="UNDONE[]"value="' +
-                bdd[ii]["id"] +
+                id +
                 '" ><label for= "checkbox' +
-                bdd[ii]["id"] +
+                id +
                 '" ><i class= "fas fa-arrow-circle-right" ></i> ' +
                 bdd[ii]["texte"] +
                 ' </label> </div>';
         }
         if (bdd[ii]["statut"] == false) {
-
             done += '<div class="done"><input type ="checkbox" id ="checkbox' +
-                bdd[ii]["id"] +
+                id +
                 '"name="DONE[]"value ="' +
-                bdd[ii]["id"] +
+                id +
                 '"><label for="checkbox' +
-                bdd[ii]["id"] +
+                id +
                 '"><i class="fas fa-arrow-circle-right"></i> ' +
                 bdd[ii]["texte"] +
                 '</label></div>';

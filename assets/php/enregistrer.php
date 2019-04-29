@@ -10,12 +10,14 @@
 <?php
 
 if(isset($_POST['enregistrer']) AND ($_POST['plusTache'])){
-    
+
+
+
 $plusTache = $_POST['plusTache'];
-$i=0;
 $data = file_get_contents('assets/php/taches.json');
 $json_arr=json_decode($data,true);
-$json_arr[]= array('id'=> $i+1, 'texte' => $plusTache, 'statut' => true);
+$json_arr[]= array('texte' => $plusTache, 'statut' => true);
 file_put_contents('assets/php/taches.json', json_encode($json_arr));
+
     }
 ?>

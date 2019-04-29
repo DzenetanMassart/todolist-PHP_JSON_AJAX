@@ -1,10 +1,3 @@
-<?php
-// montre les erreurs
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-?>
-
 <!Doctype html>
 <head>
 	<title>ToDoList PHP JSON et AJAX</title>
