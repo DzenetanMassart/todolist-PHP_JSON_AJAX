@@ -21,35 +21,34 @@ let undone;
 let done;
 
 ajax_get('assets/php/taches.json', (bdd) => {
-    for (let i = 0; i < bdd.length; i++) {
-        console.log(bdd[i]['statut']);
-        if (bdd[i]["statut"] == true) {
+    for (let ii = 0; ii < bdd.length; ii++) {
+        console.log(bdd[ii]['statut']);
+        if (bdd[ii]["statut"] == true) {
 
             undone += '<div class="nodone"><input type="checkbox" id="checkbox' +
-                bdd[i]["id"] +
+                bdd[ii]["id"] +
                 '"name="UNDONE[]"value="' +
-                bdd[i]["id"] +
+                bdd[ii]["id"] +
                 '" ><label for= "checkbox' +
-                bdd[i]["id"] +
+                bdd[ii]["id"] +
                 '" ><i class= "fas fa-arrow-circle-right" ></i> ' +
-                bdd[i]["texte"] +
+                bdd[ii]["texte"] +
                 ' </label> </div>';
-        } else if (bdd[i]["statut"] == false) {
+        }
+        if (bdd[ii]["statut"] == false) {
 
-            undone += '<div class="done"><input type ="checkbox" id ="checkbox' +
-                bdd[i]["id"] +
+            done += '<div class="done"><input type ="checkbox" id ="checkbox' +
+                bdd[ii]["id"] +
                 '"name="DONE[]"value ="' +
-                bdd[i]["id"] +
+                bdd[ii]["id"] +
                 '"><label for="checkbox' +
-                bdd[i]["id"] +
+                bdd[ii]["id"] +
                 '"><i class="fas fa-arrow-circle-right"></i> ' +
-                bdd[i]["texte"] +
+                bdd[ii]["texte"] +
                 '</label></div>';
 
-        } else {
-
         }
-        document.getElementById("taches").innerHTML = undone;
-        document.getElementById("archives").innerHTML = done;
     };
+    document.getElementById("taches").innerHTML = undone;
+    document.getElementById("archives").innerHTML = done;
 });

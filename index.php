@@ -1,10 +1,10 @@
 <?php
-//montre les erreurs
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
-// /* On connecte l'index avec les variables externes !*/
-// require 'assets/php/connect.php';
+// montre les erreurs
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+/* On connecte l'index avec les variables externes !*/
+include 'assets/php/enregistrer.php';
 ?>
 
 <!Doctype html>
@@ -17,7 +17,6 @@
 	<link rel="stylesheet" href="assets/css/todolist.min.css">
 </head>
 <body>
-check
 <header>
 
 	<h1><i class="fas fa-clipboard-list"></i>ToDoList PHP,JSON & AJAX</h1>
@@ -64,6 +63,5 @@ check
 	</form>
 
 </section>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> -->
 <script src="assets/ajax/ajax.js"></script>
 </body>
