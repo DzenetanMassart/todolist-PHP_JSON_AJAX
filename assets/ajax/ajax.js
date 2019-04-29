@@ -1,16 +1,16 @@
 let ajax_get = (url, callback) => {
     let xmlhttp = new XMLHttpRequest();
-    let data;
+    let bdd;
     xmlhttp.onreadystatechange = () => {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
             console.log('response:' + xmlhttp.responseText);
             try {
-                data = JSON.parse(xmlhttp.responseText);
+                bdd = JSON.parse(xmlhttp.responseText);
             } catch (err) {
                 console.log(err.message + xmlhttp.responseText);
                 return;
             }
-            callback(data);
+            callback(bdd);
         }
     };
     xmlhttp.open("GET", url, true);
@@ -20,34 +20,36 @@ let ajax_get = (url, callback) => {
 let undone;
 let done;
 
-ajax_get('assets/php/taches.json', (data) => {
-    for (let i = 0; i < data["taches"]["pasfaits"].length; i++) {
+ajax_get('assets/php/taches.json', (bdd) => {
+    for (let i = 0; i < bdd.length; i++) {
+        console.log(bdd[i]['statut']);
+        if (bdd[i]["statut"] == true) {
 
-        undone += '<div class="nodone"><input type="checkbox" id="checkbox' +
-            data["taches"]["pasfaits"][i]["id"] +
-            '"name="UNDONE[]"value="' + data["taches"]["pasfaits"][i]["id"] +
-            '" ><label for= "checkbox' + data["taches"]["pasfaits"][i]["id"] +
-            '" ><i class= "fas fa-arrow-circle-right" ></i> ' +
-            data["taches"]["pasfaits"][i]["texte"] +
-            ' </label> </div>';
+            undone += '<div class="nodone"><input type="checkbox" id="checkbox' +
+                bdd[i]["id"] +
+                '"name="UNDONE[]"value="' +
+                bdd[i]["id"] +
+                '" ><label for= "checkbox' +
+                bdd[i]["id"] +
+                '" ><i class= "fas fa-arrow-circle-right" ></i> ' +
+                bdd[i]["texte"] +
+                ' </label> </div>';
+        } else if (bdd[i]["statut"] == false) {
 
+            undone += '<div class="done"><input type ="checkbox" id ="checkbox' +
+                bdd[i]["id"] +
+                '"name="DONE[]"value ="' +
+                bdd[i]["id"] +
+                '"><label for="checkbox' +
+                bdd[i]["id"] +
+                '"><i class="fas fa-arrow-circle-right"></i> ' +
+                bdd[i]["texte"] +
+                '</label></div>';
 
+        } else {
 
-    }
-    for (let i = 0; i < data["taches"]["faits"].length; i++) {
-
-        done += '<div class="done"><input type ="checkbox" id ="checkbox' +
-            data["taches"]["faits"][i]["id"] +
-            '"name="DONE[]"value ="' + data["taches"]["faits"][i]["id"] +
-            '"><label for="checkbox' + data["taches"]["faits"][i]["id"] +
-            '"><i class="fas fa-arrow-circle-right"></i> ' +
-            data["taches"]["faits"][i]["texte"] +
-            '</label></div>';
-
-
-
-    }
-    document.getElementById("taches").innerHTML = undone;
-    document.getElementById("archives").innerHTML = done;
-
+        }
+        document.getElementById("taches").innerHTML = undone;
+        document.getElementById("archives").innerHTML = done;
+    };
 });

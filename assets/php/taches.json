@@ -1,14 +1,8 @@
-{
-    "taches": {
-        "pasfaits": [
-            { "id": "1", "texte": "Test !" },
-            { "id": "2", "texte": "Saucisse !" }
-        ],
+[
 
+    { "id": "1", "texte": "Test !", "statut": true },
+    { "id": "2", "texte": "Saucisse !", "statut": true },
+    { "id": "3", "texte": "Popo !", "statut": true },
+    { "id": "4", "texte": "Grand test !", "statut": false }
 
-        "faits": [
-            { "id": "3", "texte": "Popo !" },
-            { "id": "4", "texte": "Grand test !" }
-        ]
-    }
-}
+]
