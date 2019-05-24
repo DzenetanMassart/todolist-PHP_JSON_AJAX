@@ -21,7 +21,7 @@ let undone;
 let done;
 let id = 0;
 
-ajax_get('assets/php/taches.json', (bdd) => {
+ajax_get('../php/taches.json', (bdd) => {
     for (let ii = 0; ii < bdd.length; ii++) {
         id++;
 
