@@ -5,8 +5,12 @@ Faire une ToDoList utilisant le JSON pour répertorier les informations ! Le sys
 
 # Principe
 
-3 blocks: Pasfaits,Faits et Enregistrer !
+3 blocks: Taches,Archives et Enregistrer !
 
-Pasfaits: Il sert à afficher les checkboxes des tâches à faire se trouvant dans la partie "Pasfaits" du JSON,
-Faits: Il sert à afficher les checkboxes des tâches faîtes se trouvant dans la partie "Faits" du JSON,
-Enregistrer: Il sert à enregistrer une tâche dans la partie "Pasfaits" du JSON.
+Taches: Il sert à afficher les checkboxes des tâches à faire ayant le statut en "true" dans le fichier JSON,
+
+
+Archives: Il sert à afficher les checkboxes des tâches faîtes ayant le statut en "false" dans le fichier JSON,
+
+
+Enregistrer: Il sert à enregistrer une nouvelle tâche dans le fichier JSON (car oui, on sait faire ça) !
